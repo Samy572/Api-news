@@ -2,6 +2,7 @@
 	<div class="article">
 		<a class="news" v-for="(news, index) in products" :key="index" :href="news.url" target="_blank">
 			<p class="title-news">{{ news.title }}</p>
+			<span class="time">{{ news.time }}</span>
 		</a>
 	</div>
 </template>
@@ -17,10 +18,6 @@ onMounted(() => {
 		.then((response) => response.json())
 		.then((data) => (products.value = data));
 });
-
-
-
-
 </script>
 <style scoped lang="scss">
 @import '../assets/base.scss';
@@ -31,7 +28,6 @@ onMounted(() => {
 	flex-wrap: wrap;
 	justify-content: center;
 	margin: 10px;
-	
 }
 
 .news {
@@ -44,8 +40,8 @@ onMounted(() => {
 	border: solid 1px aqua;
 	border-radius: 5px;
 	animation: appear 1s forwards;
-	&:hover{
-		color:aqua;
+	&:hover {
+		color: aqua;
 	}
 }
 
@@ -61,6 +57,12 @@ onMounted(() => {
 	color: aqua;
 }
 
+.time {
+	width: 100%;
+	text-align: end;
+	margin-right: 25px;
+}
+
 .list-enter-active,
 .list-leave-active {
 	transition: all 0.5s;
@@ -72,12 +74,12 @@ onMounted(() => {
 	transform: translateY(30px);
 }
 
-@keyframes appear{
-	0%{
+@keyframes appear {
+	0% {
 		transform: translateY(-1000%);
 	}
-	100%{
-		transform: translateY(0)
+	100% {
+		transform: translateY(0);
 	}
 }
 
@@ -92,7 +94,7 @@ onMounted(() => {
 	}
 	.news {
 		width: 90%;
-		height: 250px;
+		height: 200px;
 		padding: 10px;
 		a {
 			padding: 0;

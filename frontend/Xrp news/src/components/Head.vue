@@ -1,6 +1,5 @@
 <template>
 	<div class="header">
-	
 		<div class="title">
 			<h1>Ripple & Xrp news <span>24/7</span></h1>
 		</div>
@@ -38,9 +37,12 @@ import { RouterLink } from 'vue-router';
 		padding-right: 20px;
 		list-style-type: none;
 		display: flex;
+		align-items: center;
+		flex-direction: row;
 		width: 20%;
-
+	  
 		a {
+			display: flex;
 			text-decoration: none;
 			font-size: 18px;
 			color: #f2f2f2;

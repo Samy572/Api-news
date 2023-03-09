@@ -19,9 +19,11 @@ async function getResponse(html) {
 	$('.hl__inner', html).each(function () {
 		const newDatas = {
 			id: newData.length + 1,
-			title: $(this).text(),
+			title: `${$(this).children('.hll').text()}`,
 			url: `${$(this).children('a').attr('href')}`,
+			time: $($(this).children('.meta').children('.time')).text(),
 		};
+		console.log(newDatas.title);
 
 		if (newDatas.title.includes('XRP' || 'Ripple' || 'Xrp')) {
 			newData.push(newDatas);
